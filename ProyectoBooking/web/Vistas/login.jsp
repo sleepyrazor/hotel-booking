@@ -27,7 +27,7 @@
                 <h2><s:property value="message"/></h2>
             </s:i18n>
             <p>No account yet?
-                <s:a href="/ProyectoBooking/Vistas/login/registro.jsp">Register now!</s:a>
+                <s:a href="/ProyectoBooking/Vistas/registro.jsp">Register now!</s:a>
 
             </p>
 
