@@ -3,26 +3,32 @@
     Created on : 30-may-2024, 11:45:52
     Author     : agarc
 --%>
+
+<%@taglib prefix="s" uri="/struts-tags"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registro Cliente</title>
-        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
-        <s:head/>
+        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+        <title>Registro Nueva Cuenta - Reserva de Hotel</title>
     </head>
     <body>
-        <h2>Registre sus datos:</h2>
-     
-    <s:form action="register" method="post">
-            <s:textfield property="username" styleId="username" placeholder="Nombre de usuario"/>
-             <s:textfield name="email" id="email" label="Correo Electronico"></s:textfield>
-             <s:textfield name="contrasena" id="contrasena" label="Contraseña"></s:textfield>
+       
+
+        <div class="container">
+            <h2>Registro Nueva Cuenta</h2>
+            <s:form id="registerform" method="POST" action="register">
+                <s:textfield name="nombre" label="Nombre" />
+                <s:textfield name="email" label="Email" />
+                <s:password name="password" label="Contraseña" />
+                <s:submit value="Registrarse" />
+            </s:form>
+            <p>¿Ya tienes una cuenta? <a href="<s:url action='login'/>">Login</a></p>
         </div>
-            <s:submit name="enviar" id="enviar" label="Registrarse"/>
-        
-    </s:form>
-</body>
+
+
+    </body>
 </html>
+

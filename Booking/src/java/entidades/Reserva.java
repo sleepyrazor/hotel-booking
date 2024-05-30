@@ -6,15 +6,19 @@
 package entidades;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -26,35 +30,90 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Reserva.findAll", query = "SELECT r FROM Reserva r")
-    , @NamedQuery(name = "Reserva.findById", query = "SELECT r FROM Reserva r WHERE r.id = :id")})
+    , @NamedQuery(name = "Reserva.findByIdReserva", query = "SELECT r FROM Reserva r WHERE r.idReserva = :idReserva")
+    , @NamedQuery(name = "Reserva.findByCoste", query = "SELECT r FROM Reserva r WHERE r.coste = :coste")
+    , @NamedQuery(name = "Reserva.findByDuracion", query = "SELECT r FROM Reserva r WHERE r.duracion = :duracion")})
 public class Reserva implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "idReserva")
+    private Integer idReserva;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "coste")
+    private BigDecimal coste;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "duracion")
+    private int duracion;
+    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
+    @ManyToOne
+    private Cliente idCliente;
+    @JoinColumn(name = "idHabitacion", referencedColumnName = "idHabitacion")
+    @ManyToOne
+    private Habitacion idHabitacion;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id) {
-        this.id = id;
+    public Reserva(Integer idReserva) {
+        this.idReserva = idReserva;
     }
 
-    public Integer getId() {
-        return id;
+    public Reserva(Integer idReserva, BigDecimal coste, int duracion) {
+        this.idReserva = idReserva;
+        this.coste = coste;
+        this.duracion = duracion;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(Integer idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public BigDecimal getCoste() {
+        return coste;
+    }
+
+    public void setCoste(BigDecimal coste) {
+        this.coste = coste;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Habitacion getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public void setIdHabitacion(Habitacion idHabitacion) {
+        this.idHabitacion = idHabitacion;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idReserva != null ? idReserva.hashCode() : 0);
         return hash;
     }
 
@@ -65,7 +124,7 @@ public class Reserva implements Serializable {
             return false;
         }
         Reserva other = (Reserva) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idReserva == null && other.idReserva != null) || (this.idReserva != null && !this.idReserva.equals(other.idReserva))) {
             return false;
         }
         return true;
@@ -73,7 +132,7 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Reserva[ id=" + id + " ]";
+        return "entidades.Reserva[ idReserva=" + idReserva + " ]";
     }
     
 }

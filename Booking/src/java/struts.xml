@@ -3,9 +3,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
-
         <action name="">
             <result type="chain">
                 <param name="actionName">login</param>
@@ -13,26 +11,16 @@
             </result>
         </action>
     </package>
+
     <package name="login" namespace="/" extends="struts-default">
         <action name="login" class="actions.ALogin">
-            <result name="success">/inicio.jsp</result>
-            <result name="error" >/login.jsp</result>          
+            <result name="success">Vistas/main.jsp</result>
         </action>
     </package>
-
-    
-    <package name="registrer" namespace="/"  extends="struts-default">
-        <action name="registrer" class="actions.ARegistrar"> 
-             <result name="success">/Vistas/login.jsp</result>
-            <result name="input">/Vistas/registro.jsp</result>      
+    <package name="register" namespace="/" extends="struts-default">
+        <action name="register" class="actions.ARegister">
+             <result name="success">Vistas/login.jsp</result>
+            <result name="input">Vistas/registro.jsp</result>
         </action>
     </package>
-    <package name="actualizar" namespace="/" extends="struts-default">
-        <action name="actualizar" class="Actions.AActualizar">            
-            <result name="success">/inicio.jsp</result>
-            <result name="input">/editar.jsp</result>              
-        </action>
-        
-    </package>
-    
 </struts>

@@ -6,21 +6,21 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,8 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Hotel.findAll", query = "SELECT h FROM Hotel h")
     , @NamedQuery(name = "Hotel.findByIdHotel", query = "SELECT h FROM Hotel h WHERE h.idHotel = :idHotel")
-    , @NamedQuery(name = "Hotel.findByIdHabitacion", query = "SELECT h FROM Hotel h WHERE h.idHabitacion = :idHabitacion")
-    , @NamedQuery(name = "Hotel.findByIdTrabajador", query = "SELECT h FROM Hotel h WHERE h.idTrabajador = :idTrabajador")})
+    , @NamedQuery(name = "Hotel.findByNombre", query = "SELECT h FROM Hotel h WHERE h.nombre = :nombre")
+    , @NamedQuery(name = "Hotel.findByDireccion", query = "SELECT h FROM Hotel h WHERE h.direccion = :direccion")
+    , @NamedQuery(name = "Hotel.findByEstrellas", query = "SELECT h FROM Hotel h WHERE h.estrellas = :estrellas")})
 public class Hotel implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,26 +45,16 @@ public class Hotel implements Serializable {
     private Integer idHotel;
     @Basic(optional = false)
     @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "Nombre")
+    @Size(min = 1, max = 100)
+    @Column(name = "nombre")
     private String nombre;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "Direccion")
+    @Size(max = 200)
+    @Column(name = "direccion")
     private String direccion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idHabitacion")
-    private int idHabitacion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idTrabajador")
-    private int idTrabajador;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "hotel")
-    private Habitacion habitacion;
+    @Column(name = "estrellas")
+    private Integer estrellas;
+    @OneToMany(mappedBy = "idHotel")
+    private Collection<Habitacion> habitacionCollection;
 
     public Hotel() {
     }
@@ -72,12 +63,9 @@ public class Hotel implements Serializable {
         this.idHotel = idHotel;
     }
 
-    public Hotel(Integer idHotel, String nombre, String direccion, int idHabitacion, int idTrabajador) {
+    public Hotel(Integer idHotel, String nombre) {
         this.idHotel = idHotel;
         this.nombre = nombre;
-        this.direccion = direccion;
-        this.idHabitacion = idHabitacion;
-        this.idTrabajador = idTrabajador;
     }
 
     public Integer getIdHotel() {
@@ -104,28 +92,21 @@ public class Hotel implements Serializable {
         this.direccion = direccion;
     }
 
-    public int getIdHabitacion() {
-        return idHabitacion;
+    public Integer getEstrellas() {
+        return estrellas;
     }
 
-    public void setIdHabitacion(int idHabitacion) {
-        this.idHabitacion = idHabitacion;
+    public void setEstrellas(Integer estrellas) {
+        this.estrellas = estrellas;
     }
 
-    public int getIdTrabajador() {
-        return idTrabajador;
+    @XmlTransient
+    public Collection<Habitacion> getHabitacionCollection() {
+        return habitacionCollection;
     }
 
-    public void setIdTrabajador(int idTrabajador) {
-        this.idTrabajador = idTrabajador;
-    }
-
-    public Habitacion getHabitacion() {
-        return habitacion;
-    }
-
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
+    public void setHabitacionCollection(Collection<Habitacion> habitacionCollection) {
+        this.habitacionCollection = habitacionCollection;
     }
 
     @Override

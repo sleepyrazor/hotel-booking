@@ -6,6 +6,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,14 +14,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,9 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Habitacion.findAll", query = "SELECT h FROM Habitacion h")
     , @NamedQuery(name = "Habitacion.findByIdHabitacion", query = "SELECT h FROM Habitacion h WHERE h.idHabitacion = :idHabitacion")
-    , @NamedQuery(name = "Habitacion.findByIdHotel", query = "SELECT h FROM Habitacion h WHERE h.idHotel = :idHotel")
-    , @NamedQuery(name = "Habitacion.findByIdReserva", query = "SELECT h FROM Habitacion h WHERE h.idReserva = :idReserva")
-    , @NamedQuery(name = "Habitacion.findByIdCliente", query = "SELECT h FROM Habitacion h WHERE h.idCliente = :idCliente")})
+    , @NamedQuery(name = "Habitacion.findByNumero", query = "SELECT h FROM Habitacion h WHERE h.numero = :numero")
+    , @NamedQuery(name = "Habitacion.findByPiso", query = "SELECT h FROM Habitacion h WHERE h.piso = :piso")
+    , @NamedQuery(name = "Habitacion.findByCategoria", query = "SELECT h FROM Habitacion h WHERE h.categoria = :categoria")})
 public class Habitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,37 +47,18 @@ public class Habitacion implements Serializable {
     private Integer idHabitacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "idHotel")
-    private int idHotel;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idReserva")
-    private int idReserva;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idCliente")
-    private int idCliente;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "Numero")
-    private String numero;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "Piso")
-    private String piso;
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "Categoria")
+    @Column(name = "numero")
+    private int numero;
+    @Column(name = "piso")
+    private Integer piso;
+    @Size(max = 50)
+    @Column(name = "categoria")
     private String categoria;
-    @JoinColumn(name = "idHabitacion", referencedColumnName = "idHotel", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Hotel hotel;
+    @OneToMany(mappedBy = "idHabitacion")
+    private Collection<Reserva> reservaCollection;
+    @JoinColumn(name = "idHotel", referencedColumnName = "idHotel")
+    @ManyToOne
+    private Hotel idHotel;
 
     public Habitacion() {
     }
@@ -84,14 +67,9 @@ public class Habitacion implements Serializable {
         this.idHabitacion = idHabitacion;
     }
 
-    public Habitacion(Integer idHabitacion, int idHotel, int idReserva, int idCliente, String numero, String piso, String categoria) {
+    public Habitacion(Integer idHabitacion, int numero) {
         this.idHabitacion = idHabitacion;
-        this.idHotel = idHotel;
-        this.idReserva = idReserva;
-        this.idCliente = idCliente;
         this.numero = numero;
-        this.piso = piso;
-        this.categoria = categoria;
     }
 
     public Integer getIdHabitacion() {
@@ -102,43 +80,19 @@ public class Habitacion implements Serializable {
         this.idHabitacion = idHabitacion;
     }
 
-    public int getIdHotel() {
-        return idHotel;
-    }
-
-    public void setIdHotel(int idHotel) {
-        this.idHotel = idHotel;
-    }
-
-    public int getIdReserva() {
-        return idReserva;
-    }
-
-    public void setIdReserva(int idReserva) {
-        this.idReserva = idReserva;
-    }
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public String getPiso() {
+    public Integer getPiso() {
         return piso;
     }
 
-    public void setPiso(String piso) {
+    public void setPiso(Integer piso) {
         this.piso = piso;
     }
 
@@ -150,12 +104,21 @@ public class Habitacion implements Serializable {
         this.categoria = categoria;
     }
 
-    public Hotel getHotel() {
-        return hotel;
+    @XmlTransient
+    public Collection<Reserva> getReservaCollection() {
+        return reservaCollection;
     }
 
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
+    public void setReservaCollection(Collection<Reserva> reservaCollection) {
+        this.reservaCollection = reservaCollection;
+    }
+
+    public Hotel getIdHotel() {
+        return idHotel;
+    }
+
+    public void setIdHotel(Hotel idHotel) {
+        this.idHotel = idHotel;
     }
 
     @Override
