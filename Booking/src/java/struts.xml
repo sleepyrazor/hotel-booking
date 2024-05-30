@@ -6,5 +6,7 @@
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        
     </package>
+    
 </struts>
