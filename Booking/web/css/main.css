@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30-may-2024, 12:11:32
+    Author     : Manuel Revuelta
+*/
+
+/* Estilos básicos para el cuerpo */
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Estilo para el contenedor superior */
+.top {
+    background-color: #336699;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid #003366;
+}
+
+.top .container {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el encabezado de la lista de hoteles */
+h3 {
+    text-align: center;
+    color: #003366;
+}
+
+/* Estilo para la lista de hoteles */
+.hotel-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.hotel-item {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+.hotel-item h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #333333;
+}
+
+.hotel-item p {
+    margin: 5px 0;
+    color: #666666;
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: #336699;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 2px solid #003366;
+}
