@@ -13,9 +13,6 @@
             </result>
         </action>
     </package>
-
-    
-    
     <package name="login" namespace="/" extends="struts-default">
         <action name="login" class="actions.ALogin">
             <result name="success">/inicio.jsp</result>
