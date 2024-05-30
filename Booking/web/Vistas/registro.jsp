@@ -3,28 +3,25 @@
     Created on : 30-may-2024, 11:45:52
     Author     : agarc
 --%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Registro de Cliente</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Registro Cliente</title>
+        <s:head/>
     </head>
     <body>
-        <h2>Introduzca sus datos:</h2>
-        <form action="register" method="post">
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" id="username" name="username" required><br><br>
-
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required><br><br>
-
-            <input type="submit" value="Registrar">
-        </form>
-    </body>
+        <h2>Registre sus datos:</h2>
+     
+    <s:form action="register" method="post">
+            <s:textfield property="username" styleId="username" placeholder="Nombre de usuario"/>
+             <s:textfield name="email" id="email" label="Correo Electronico"></s:textfield>
+             <s:textfield name="contrasena" id="contrasena" label="Contraseña"></s:textfield>
+        </div>
+            <s:submit name="enviar" id="enviar" label="Registrarse"/>
+        
+    </s:form>
+</body>
 </html>
-
