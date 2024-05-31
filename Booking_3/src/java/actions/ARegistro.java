@@ -5,19 +5,25 @@
  */
 package actions;
 
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import entidades.Cliente;
+import java.util.Map;
+import web_service.clienteREST;
 
 /**
  *
  * @author Garrido
  */
 public class ARegistro extends ActionSupport {
-    
+
     private String username;
     private String email;
     private String password;
     private String telefono;
-    
+
     public ARegistro() {
     }
 
@@ -52,12 +58,14 @@ public class ARegistro extends ActionSupport {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
-    
-    
+
     public String execute() throws Exception {
-        return "success";
+
+        // Verificar que los campos no sean nulos
+        if (username == null || password == null || email == null) {
+            return ERROR;
+        }
+
+        return SUCCESS;
     }
-    
 }

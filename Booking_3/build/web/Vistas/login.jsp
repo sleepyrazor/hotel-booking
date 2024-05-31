@@ -11,7 +11,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <link href="../css/login.css" rel="stylesheet" type="text/css"/>
         <title>Login - Reserva de Hotel</title>
     </head>
@@ -25,7 +24,7 @@
                 <s:password name="password" label="Contraseña" />
                 <s:submit value="Iniciar Sesión" />
             </s:form>
-            <p>¿No tienes una cuenta? <a href="<s:url action='register' />">Regístrate</a></p>
+            <p>¿No tienes una cuenta? <s:a href="Vistas/registro.jsp">Register</s:a></p>
             
 
         </div>

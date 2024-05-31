@@ -19,13 +19,13 @@
 
         <div class="container">
             <h2>Registro Nueva Cuenta</h2>
-            <s:form id="registerform" method="POST" action="register">
+           <s:form action="register">
                 <s:textfield name="nombre" label="Nombre" />
                 <s:textfield name="email" label="Email" />
                 <s:password name="password" label="Contraseña" />
-                <s:submit value="Registrarse" />
+                <s:submit value="Register"/>
             </s:form>
-            <p>¿Ya tienes una cuenta? <a href="<s:url action='login'/>">Login</a></p>
+            <p>¿Ya tienes una cuenta?<s:a href="login.jsp">Login</s:a></p>
         </div>
 
 
