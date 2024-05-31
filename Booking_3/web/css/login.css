@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30-may-2024, 11:49:27
+    Author     : Garrido
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-jun-2023, 18:55:48
+    Author     : Garrido
+*/
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#central {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+#login {
+    text-align: center;
+}
+
+.titulo {
+    color: #007BFF;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#loginform input[type="text"],
+#loginform input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#loginform button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loginform button:hover {
+    background-color: #0056b3;
+}
+
+.pie-form {
+    margin-top: 10px;
+}
+
+.pie-form a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.pie-form a:hover {
+    text-decoration: underline;
+}
+
+.inferior {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.inferior a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.inferior a:hover {
+    text-decoration: underline;
+}

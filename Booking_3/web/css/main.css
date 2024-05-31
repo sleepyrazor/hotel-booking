@@ -1,0 +1,70 @@
+/* Estilos básicos para el cuerpo */
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Estilo para el contenedor superior */
+.top {
+    background-color: #336699;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid #003366;
+}
+
+.top .container {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el formulario de hotel */
+.hotel {
+    background-color: #e0e0e0;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: left;
+}
+
+.hotel p {
+    margin: 15px 0;
+}
+
+.hotel label {
+    font-weight: bold;
+}
+
+.hotel input[type="submit"] {
+    background-color: #336699;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.hotel input[type="submit"]:hover {
+    background-color: #003366;
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: #336699;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 2px solid #003366;
+}
