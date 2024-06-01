@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-jun-2024 12:11:23 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="hotel" name="modelo.entidades.Rol" optimistic-lock="version" table="rol">
+    <id name="idRol" type="java.lang.Integer">
+      <column name="idRol"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombreRol" type="string">
+      <column length="50" name="nombreRol" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="clientes" table="cliente">
+      <key>
+        <column name="idRol"/>
+      </key>
+      <one-to-many class="modelo.entidades.Cliente"/>
+    </set>
+  </class>
+</hibernate-mapping>
