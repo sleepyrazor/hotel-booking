@@ -22,7 +22,7 @@ public class ClienteDao {
     public Cliente comprobarLogin(String username, String password) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From Cliente where nombre = :username and contrasena = :password");
+        Query q = sesion.createQuery("From cliente where nombre = :username and contrasena = :password");
         q.setParameter("username", username);
         q.setParameter("password", password);
         Cliente c = (Cliente) q.uniqueResult();

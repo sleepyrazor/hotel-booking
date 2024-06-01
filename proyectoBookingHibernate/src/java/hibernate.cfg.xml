@@ -41,15 +41,6 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hotel?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <mapping resource="modelo/entidades/Rol.hbm.xml"/>
-    <mapping resource="modelo/entidades/Cliente.hbm.xml"/>
-    <mapping resource="modelo/entidades/Reserva.hbm.xml"/>
-    <mapping resource="modelo/entidades/Habitacion.hbm.xml"/>
-    <mapping resource="modelo/entidades/Hotel.hbm.xml"/>
-    <mapping resource="modelo/DAO/hibernate.hbm.xml"/>
-  </session-factory>
+
+    </session-factory>
 </hibernate-configuration>
