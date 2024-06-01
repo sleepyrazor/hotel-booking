@@ -7,8 +7,8 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import modelo.Cliente;
 import modelo.DAO.ClienteDao;
-import modelo.entidades.Cliente;
 
 public class accionLogin extends ActionSupport {
 
@@ -52,7 +52,8 @@ public class accionLogin extends ActionSupport {
             addActionError("Nombre de usuario o contraseña incorrectos.");
             return ERROR;
         } else {
-            return SUCCESS;
+          return SUCCESS;
+            
         }
     }
 }

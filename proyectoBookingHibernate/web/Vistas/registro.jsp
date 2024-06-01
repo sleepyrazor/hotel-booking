@@ -4,30 +4,23 @@
     Author     : agarc
 --%>
 
-<%@taglib prefix="s" uri="/struts-tags"%> 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
-        <title>Registro Nueva Cuenta - Reserva de Hotel</title>
-    </head>
-    <body>
-       
-
-        <div class="container">
-            <h2>Registro Nueva Cuenta</h2>
-           <s:form action="register">
-                <s:textfield name="nombre" label="Nombre" />
-                <s:textfield name="email" label="Email" />
-                <s:password name="password" label="ContraseÃ±a" />
-                <s:submit value="Register"/>
-            </s:form>
-            <p>Â¿Ya tienes una cuenta?<s:a href="login.jsp">Login</s:a></p>
-        </div>
-
-
-    </body>
+<head>
+    <title>Registro de Usuario</title>
+</head>
+<body>
+   
+        <h2>Registro</h2>
+        <s:form id="registerform" method="POST" action="register">
+            <s:textfield name="nombre" label="Nombre de usuario" />
+            <s:password name="contrasena" label="Contraseña" />
+            <s:textfield name="email" label="Email" />
+            <s:textfield name="telefono" label="Teléfono" />
+            <s:submit value="Registrar" />
+        </s:form>
+        <p>¿Ya tienes una cuenta? <s:a href="Vistas/login.jsp">Iniciar Sesión</s:a></p>
+    
+</body>
 </html>

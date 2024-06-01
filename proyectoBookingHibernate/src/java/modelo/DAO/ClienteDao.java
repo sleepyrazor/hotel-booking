@@ -5,24 +5,34 @@
  */
 package modelo.DAO;
 
-import modelo.entidades.Cliente;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
+import modelo.Cliente;
+import modelo.HibernateUtil;
 import org.hibernate.Query;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author agarc
  */
 public class ClienteDao {
+    
 
-    Session sesion = null;
+private Session session;
+    public ClienteDao() {
+      
+    }
+    public ClienteDao(Session session) {
+        this.session = new Configuration().configure().buildSessionFactory().openSession();
+    }
 
     public Cliente comprobarLogin(String username, String password) {
-        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From cliente where nombre = :username and contrasena = :password");
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("From Cliente where nombre = :username and contrasena = :password");
         q.setParameter("username", username);
         q.setParameter("password", password);
         Cliente c = (Cliente) q.uniqueResult();
@@ -45,6 +55,20 @@ public class ClienteDao {
 
         // Commit de la transacción
         tx.commit();
+    }
+    
+    public boolean registrarCliente(Cliente cliente) {
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(cliente);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+            return false;
+        }
     }
 }
 

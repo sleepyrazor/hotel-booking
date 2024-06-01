@@ -16,18 +16,31 @@
         <div class="top">
             <h1 class="container">Book-IT-ing</h1>
         </div>
-        <h3>Listado de hoteles</h3>
 
-        <div class="hotel">
-            <p>Hotel: Trivago</p>
-            <p>Dirección: C:\Romualdo 23</p>
-            <p>Habitaciones libres: 25</p>
+        <a href="logout">Logout</a>
+        <h2>Listado de Hoteles</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Estrellas</th>
+            </tr>
+            <s:iterator value="hoteles">
+                <tr>
+                    <td><s:property value="idHotel"/></td>
+                    <td><s:property value="nombre"/></td>
+                    <td><s:property value="direccion"/></td>
+                    <td><s:property value="estrellas"/></td>
+                </tr>
+            </s:iterator>
+        </table>
 
-            <s:form action="">
-                <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
-            </s:form>
-        </div>
+        <s:form action="">
+            <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
+        </s:form>
+    
 
-        <div class="footer"></div>
-    </body>
+    <div class="footer"></div>
+</body>
 </html>

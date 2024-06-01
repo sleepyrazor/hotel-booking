@@ -21,7 +21,7 @@
         </s:form>
         <s:actionerror/>
         <s:fielderror/>
-        <p>¿No tienes una cuenta? <s:a href="Vistas/registro.jsp">Registrar</s:a></p>
+        <p>¿No tienes una cuenta? <s:a action="register">Registrar</s:a></p>
   
 </body>
 </html>
