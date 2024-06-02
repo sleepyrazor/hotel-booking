@@ -40,7 +40,7 @@
         <s:form action="">
             <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
         </s:form>
-    
+   
 
     <div class="footer"></div>
 </body>

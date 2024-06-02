@@ -30,7 +30,7 @@
             <result name="error">Vistas/error.jsp</result>
         </action>
         <action name="registroHotel" class="actions.accionRegistrarHotel" method="registrarHotel">
-            <result name="success">/Vistas/admin.jsp</result>
+            <result name="success">/Vistas/registroHotel.jsp</result>
             <result name="input">/Vistas/registroHotel.jsp</result>
         </action>
 

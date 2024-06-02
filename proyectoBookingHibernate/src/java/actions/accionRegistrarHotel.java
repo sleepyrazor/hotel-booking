@@ -6,6 +6,8 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Arrays;
+import java.util.List;
 import modelo.DAO.HotelDAO;
 import modelo.Hotel;
 
@@ -19,6 +21,7 @@ public class accionRegistrarHotel extends ActionSupport {
     private String direccion;
     private Integer estrellas;
     private Hotel hotel; // Asegúrate de tener un objeto Hotel con getters y setters
+      private List<String> listaEstrellas;
 
     public accionRegistrarHotel() {
     }
@@ -63,7 +66,11 @@ public class accionRegistrarHotel extends ActionSupport {
     }
 
     public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+       listaEstrellas = Arrays.asList("1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas");
+        return SUCCESS;
+    }
+    public List<String> getListaEstrellas() {
+        return listaEstrellas;
     }
 
 }

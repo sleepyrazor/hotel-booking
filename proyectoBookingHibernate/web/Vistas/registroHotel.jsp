@@ -16,7 +16,8 @@
         <s:form action="registroHotel">
             <s:textfield key="hotel.nombre" label="Nombre del hotel" />
             <s:textfield key="hotel.direccion" label="Dirección" />
-            <s:select name="idRol" label="Rol" list="roles" listKey="idRol" listValue="nombreRol" />
+            <s:select key="hotel.estrellas" label="Estrellas" list="listaEstrellas" />
+
             <!-- Otros campos del formulario -->
             <s:submit value="Registrar" />
         </s:form>
