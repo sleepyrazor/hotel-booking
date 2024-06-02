@@ -13,12 +13,11 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <s:form action="registroHotel">
+        <s:form action="registroHotel" method="post">
             <s:textfield key="hotel.nombre" label="Nombre del hotel" />
             <s:textfield key="hotel.direccion" label="Dirección" />
-            <s:select name="estrellas" label="estrellas" list="listaEstrellas" listKey="estrellas" listValue="estrellas" />
+            <s:select name="hotel.estrellas" label="Estrellas" list="listaEstrellas" />
 
-            <!-- Otros campos del formulario -->
             <s:submit value="Registrar" />
         </s:form>
 
