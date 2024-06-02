@@ -26,6 +26,9 @@ public class accionRegistrarHotel extends ActionSupport {
     private Hotel hotel;
     private Map<Integer, String> listaEstrellas;
 
+    public accionRegistrarHotel() {
+    }
+
     public accionRegistrarHotel(Map<Integer, String> listaEstrellas) {
         listaEstrellas = new HashMap<>();
         listaEstrellas.put(1, "1 Estrella");
