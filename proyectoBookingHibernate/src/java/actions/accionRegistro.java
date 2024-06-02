@@ -5,15 +5,17 @@
  */
 package actions;
 
-import com.opensymphony.xwork2.ActionSupport;
-import java.util.HashSet;
-import java.util.Set;
-import modelo.Rol;
-    
+
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import modelo.Cliente;
 import modelo.DAO.ClienteDao;
+import modelo.DAO.RolDAO;
+import modelo.Rol;
+
 /**
  *
  * @author agarc
@@ -23,10 +25,11 @@ import modelo.DAO.ClienteDao;
 public class accionRegistro extends ActionSupport {
 
     private String nombre;
-    private String contrasena;
     private String email;
     private String telefono;
-    private ClienteDao cDAO = new ClienteDao();
+    private String contrasena;
+    private int idRol;
+    private List<Rol> roles;
 
     public String getNombre() {
         return nombre;
@@ -34,14 +37,6 @@ public class accionRegistro extends ActionSupport {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
     public String getEmail() {
@@ -60,36 +55,51 @@ public class accionRegistro extends ActionSupport {
         this.telefono = telefono;
     }
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
+
+    @Override
     public String execute() throws Exception {
-        // Validar si los campos están vacíos
-        if (this.getNombre() == null || this.getNombre().trim().isEmpty()) {
-            addFieldError("nombre", "El nombre de usuario no puede estar vacío.");
-            return INPUT;
-        }
+        RolDAO rolDao = new RolDAO();
+        roles = rolDao.listarRoles();
+        
+        if (nombre != null && email != null && contrasena != null) {
+            ClienteDao cDAO = new ClienteDao();
+            Cliente nuevoCliente = new Cliente();
+            nuevoCliente.setNombre(nombre);
+            nuevoCliente.setEmail(email);
+            nuevoCliente.setTelefono(telefono);
+            nuevoCliente.setContrasena(contrasena);
 
-        if (this.getContrasena() == null || this.getContrasena().trim().isEmpty()) {
-            addFieldError("contrasena", "El campo contraseña no puede estar vacío");
-            return INPUT;
-        }
+            Rol rol = rolDao.obtenerRolPorId(idRol);
+            nuevoCliente.setRol(rol);
 
-        if (this.getEmail() == null || this.getEmail().trim().isEmpty()) {
-            addFieldError("email", "El campo email no puede estar vacío");
-            return INPUT;
+            cDAO.registrarCliente(nuevoCliente);
+            return SUCCESS.toLowerCase();
         }
-
-        // Crear nuevo cliente
-        Cliente nuevoCliente = new Cliente();
-        nuevoCliente.setNombre(this.getNombre());
-        nuevoCliente.setContrasena(this.getContrasena());
-        nuevoCliente.setEmail(this.getEmail());
-        nuevoCliente.setTelefono(this.getTelefono());
-
-        // Guardar cliente en la base de datos
-        if (cDAO.registrarCliente(nuevoCliente)) {
-            return SUCCESS;
-        } else {
-            addActionError("Error al registrar el usuario. Intente nuevamente.");
-            return ERROR;
-        }
+        
+        return INPUT;
     }
 }
+

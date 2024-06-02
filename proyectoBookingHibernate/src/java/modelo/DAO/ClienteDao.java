@@ -5,26 +5,27 @@
  */
 package modelo.DAO;
 
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
 import modelo.Cliente;
 import modelo.HibernateUtil;
-import org.hibernate.Query;
+import modelo.Rol;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.Query;
 
 /**
  *
  * @author agarc
  */
 public class ClienteDao {
-    
 
-private Session session;
+    private Session session;
+
     public ClienteDao() {
-      
+
     }
+
     public ClienteDao(Session session) {
         this.session = new Configuration().configure().buildSessionFactory().openSession();
     }
@@ -32,7 +33,7 @@ private Session session;
     public Cliente comprobarLogin(String username, String password) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("From Cliente where nombre = :username and contrasena = :password");
+        Query q = session.createQuery("FROM Cliente c JOIN FETCH c.rol WHERE c.nombre = :username AND c.contrasena = :password");
         q.setParameter("username", username);
         q.setParameter("password", password);
         Cliente c = (Cliente) q.uniqueResult();
@@ -41,34 +42,10 @@ private Session session;
     }
 
     // Método para registrar un nuevo usuario
-    public void registrarUsuario(String username, String password,String email) {
+    public void registrarCliente(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-
-        // Crear nueva instancia de Cliente
-        Cliente nuevoCliente = new Cliente();
-        nuevoCliente.setNombre(username);
-        nuevoCliente.setContrasena(password);
-        nuevoCliente.setEmail(email);
-        // Guardar el cliente en la base de datos
-        session.save(nuevoCliente);
-
-        // Commit de la transacción
+        session.save(cliente);
         tx.commit();
     }
-    
-    public boolean registrarCliente(Cliente cliente) {
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            session.save(cliente);
-            tx.commit();
-            return true;
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-            return false;
-        }
-    }
 }
-

@@ -5,22 +5,22 @@
 --%>
 
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html>
 <html>
 <head>
     <title>Registro de Usuario</title>
+    <link href="../css/login.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-   
-        <h2>Registro</h2>
-        <s:form id="registerform" method="POST" action="register">
-            <s:textfield name="nombre" label="Nombre de usuario" />
-            <s:password name="contrasena" label="Contraseña" />
-            <s:textfield name="email" label="Email" />
-            <s:textfield name="telefono" label="Teléfono" />
-            <s:submit value="Registrar" />
-        </s:form>
-        <p>¿Ya tienes una cuenta? <s:a href="Vistas/login.jsp">Iniciar Sesión</s:a></p>
-    
+    <h2>Registro de Usuario</h2>
+    <s:form action="register" method="POST">
+        <s:textfield name="nombre" label="Nombre" />
+        <s:textfield name="email" label="Email" />
+        <s:textfield name="telefono" label="Teléfono" />
+        <s:password name="contrasena" label="Contraseña" />
+        <s:select name="idRol" label="Rol" list="roles" listKey="idRol" listValue="nombre" />
+        <s:submit value="Registrar" />
+    </s:form>
+    <s:fielderror />
 </body>
 </html>
+

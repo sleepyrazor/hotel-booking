@@ -3,17 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import javax.servlet.http.HttpSession;
 import modelo.Cliente;
 import modelo.DAO.ClienteDao;
+import modelo.Rol;
+import org.apache.struts2.ServletActionContext;
 
 public class accionLogin extends ActionSupport {
 
     private String nombre;
     private String contrasena;
+    private Rol idRol;
     private ClienteDao cDAO = new ClienteDao();
     private Cliente c;
 
@@ -34,6 +37,14 @@ public class accionLogin extends ActionSupport {
         this.contrasena = contrasena;
     }
 
+    public Rol getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
+    }
+
     @Override
     public String execute() throws Exception {
         if (this.getNombre() == null || this.getNombre().trim().isEmpty()) {
@@ -52,9 +63,17 @@ public class accionLogin extends ActionSupport {
             addActionError("Nombre de usuario o contraseña incorrectos.");
             return ERROR;
         } else {
-          return SUCCESS;
-            
+            HttpSession httpSession = ServletActionContext.getRequest().getSession();
+            httpSession.setAttribute("cliente", c);
+            if (c.getRol().getIdRol() == 1) {
+                return "admin";
+            } else if (c.getRol().getIdRol() == 2) {
+                return "cliente";
+            } else {
+                addActionError("Rol desconocido");
+                return ERROR;
+            }
+
         }
     }
 }
-
