@@ -8,7 +8,9 @@ package actions;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import modelo.DAO.HotelDAO;
 import modelo.Hotel;
 
@@ -22,6 +24,16 @@ public class accionRegistrarHotel extends ActionSupport {
     private String direccion;
     private Integer estrellas;
     private Hotel hotel;
+    private Map<Integer, String> listaEstrellas;
+
+    public accionRegistrarHotel(Map<Integer, String> listaEstrellas) {
+        listaEstrellas = new HashMap<>();
+        listaEstrellas.put(1, "1 Estrella");
+        listaEstrellas.put(2, "2 Estrellas");
+        listaEstrellas.put(3, "3 Estrellas");
+        listaEstrellas.put(4, "4 Estrellas");
+        listaEstrellas.put(5, "5 Estrellas");
+    }
 
     public String getNombre() {
         return nombre;
@@ -55,22 +67,31 @@ public class accionRegistrarHotel extends ActionSupport {
         this.hotel = hotel;
     }
 
+    public Map<Integer, String> getListaEstrellas() {
+        return listaEstrellas;
+    }
+
+    public void setListaEstrellas(Map<Integer, String> listaEstrellas) {
+        this.listaEstrellas = listaEstrellas;
+    }
+
     public String registrarHotel() {
-          System.out.println("Método registrarHotel llamado");
-        if (this.estrellas == null || this.estrellas < 1 || this.estrellas > 5) {
+        // Validar el número de estrellas
+        if (estrellas == null || estrellas < 1 || estrellas > 5) {
             addActionError("El número de estrellas debe estar entre 1 y 5.");
             return INPUT;
         } else {
-            hotel = new Hotel();
+            // Crear un nuevo objeto Hotel
+            Hotel hotel = new Hotel();
             hotel.setNombre(nombre);
             hotel.setDireccion(direccion);
             hotel.setEstrellas(estrellas);
 
+            // Guardar el hotel en la base de datos
             HotelDAO hotelDao = new HotelDAO();
             hotelDao.guardarHotel(hotel);
 
             return SUCCESS;
         }
-
     }
 }
