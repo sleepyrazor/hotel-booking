@@ -17,7 +17,7 @@
         <s:textfield name="email" label="Email" />
         <s:textfield name="telefono" label="Teléfono" />
         <s:password name="contrasena" label="Contraseña" />
-        <s:select name="idRol" label="Rol" list="roles" listKey="idRol" listValue="nombre" />
+        <s:select name="idRol" label="Rol" list="roles" listKey="idRol" listValue="nombreRol" />
         <s:submit value="Registrar" />
     </s:form>
     <s:fielderror />
