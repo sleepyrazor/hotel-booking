@@ -60,13 +60,14 @@ public class accionRegistrarHotel extends ActionSupport {
 
     public String registrarHotel() {
         // Lógica para validar y guardar el nuevo hotel en la base de datos
+        listaEstrellas = Arrays.asList("1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas");
         HotelDAO hotelDao = new HotelDAO();
         hotelDao.guardarHotel(hotel);
         return SUCCESS;
     }
 
     public String execute() throws Exception {
-       listaEstrellas = Arrays.asList("1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas");
+      
         return SUCCESS;
     }
     public List<String> getListaEstrellas() {
