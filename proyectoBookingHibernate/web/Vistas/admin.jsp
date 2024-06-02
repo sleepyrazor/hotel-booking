@@ -23,7 +23,8 @@
                 <th>Dirección</th>
                 <th>Estrellas</th>
             </tr>
-            <s:iterator value="hoteles">
+            <s:action name="listarHoteles" var="accionListarHoteles" />
+            <s:iterator value="#accionListarHoteles.hoteles">
                 <tr>
                     <td><s:property value="idHotel" /></td>
                 <td><s:property value="nombre"/></td>
