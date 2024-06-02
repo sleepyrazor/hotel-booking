@@ -15,7 +15,7 @@
         <s:form action="registrarHotel" method="post">
             <s:textfield name="hotel.nombre" label="Nombre" />
             <s:textfield name="hotel.direccion" label="Dirección" />
-            <s:select  label="Estrellas" list="listaEstrellas" />
+            <s:textfield name="hotel.estrellas" label="Estrellas (1-5)" />
             <s:submit value="Registrar" />
         </s:form>
     </body>

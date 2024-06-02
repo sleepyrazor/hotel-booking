@@ -6,6 +6,7 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import modelo.DAO.HotelDAO;
@@ -20,11 +21,7 @@ public class accionRegistrarHotel extends ActionSupport {
     private String nombre;
     private String direccion;
     private Integer estrellas;
-    private Hotel hotel; // Asegúrate de tener un objeto Hotel con getters y setters
-    private List<String> listaEstrellas;
-
-    public accionRegistrarHotel() {
-    }
+    private Hotel hotel;
 
     public String getNombre() {
         return nombre;
@@ -58,20 +55,22 @@ public class accionRegistrarHotel extends ActionSupport {
         this.hotel = hotel;
     }
 
-    public String execute() throws Exception {
-        listaEstrellas = Arrays.asList("1 Estrella", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas");
-        return SUCCESS;
-    }
-
     public String registrarHotel() {
+          System.out.println("Método registrarHotel llamado");
+        if (this.estrellas == null || this.estrellas < 1 || this.estrellas > 5) {
+            addActionError("El número de estrellas debe estar entre 1 y 5.");
+            return INPUT;
+        } else {
+            hotel = new Hotel();
+            hotel.setNombre(nombre);
+            hotel.setDireccion(direccion);
+            hotel.setEstrellas(estrellas);
 
-        HotelDAO hotelDao = new HotelDAO();
-        hotelDao.guardarHotel(hotel);
-        return SUCCESS;
+            HotelDAO hotelDao = new HotelDAO();
+            hotelDao.guardarHotel(hotel);
+
+            return SUCCESS;
+        }
+
     }
-
-    public List<String> getListaEstrellas() {
-        return listaEstrellas;
-    }
-
 }
