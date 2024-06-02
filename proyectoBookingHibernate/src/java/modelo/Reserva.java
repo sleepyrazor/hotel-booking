@@ -67,6 +67,11 @@ public class Reserva  implements java.io.Serializable {
         this.duracion = duracion;
     }
 
+    @Override
+    public String toString() {
+        return "Reserva{" + "idReserva=" + idReserva + ", cliente=" + cliente + ", habitacion=" + habitacion + ", coste=" + coste + ", duracion=" + duracion + '}';
+    }
+
 
 
 

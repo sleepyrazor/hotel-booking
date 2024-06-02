@@ -34,14 +34,19 @@
                     <td><s:property value="direccion"/></td>
                     <td><s:property value="estrellas"/></td>
                 </tr>
+                <s:form action="reservar">
+
+                    <s:hidden name="idHotel" id="idHotel" value="%{idHotel}"></s:hidden>
+                    <s:hidden name="nombre" id="nombre" value="%{nombre}"></s:hidden>
+                    <s:hidden name="direccion" id="direccion" value="%{direccion}"></s:hidden>
+                    <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
+                </s:form>
             </s:iterator>
         </table>
 
-        <s:form action="">
-            <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
-        </s:form>
-    
 
-    <div class="footer"></div>
-</body>
+
+
+        <div class="footer"></div>
+    </body>
 </html>

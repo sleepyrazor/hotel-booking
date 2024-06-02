@@ -35,6 +35,15 @@
         </action>
 
     </package>
+    
+    <package name="reservas" namespace="/" extends="struts-default">
+        <action name="reservar" class="actions.accionReservar">
+            <result name="success">/Vistas/reservar.jsp</result>
+            <result name="error">/Vistas/error.jsp</result>
+        </action>
+        
+        
+    </package>
 </struts>
 
 
