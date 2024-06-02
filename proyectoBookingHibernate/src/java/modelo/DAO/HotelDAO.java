@@ -31,8 +31,9 @@ public class HotelDAO {
     public List<Hotel> listarHoteles() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("FROM Hotel");
-        return q.list();
+        List<Hotel> hoteles = session.createQuery("FROM Hotel").list();
+       tx.commit();
+        return hoteles;
     }
 
     public void guardarHotel(Hotel hotel) {

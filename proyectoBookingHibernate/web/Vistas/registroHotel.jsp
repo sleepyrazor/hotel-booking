@@ -4,22 +4,20 @@
     Author     : agarc
 --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registro de Hotel</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <s:form action="registroHotel" method="post">
-            <s:textfield key="hotel.nombre" label="Nombre del hotel" />
-            <s:textfield key="hotel.direccion" label="Dirección" />
-            <s:select name="hotel.estrellas" label="Estrellas" list="listaEstrellas" />
-
+        <h2>Registro de Hotel</h2>
+        <s:form action="registrarHotel" method="post">
+            <s:textfield name="hotel.nombre" label="Nombre" />
+            <s:textfield name="hotel.direccion" label="Dirección" />
+            <s:select  label="Estrellas" list="listaEstrellas" />
             <s:submit value="Registrar" />
         </s:form>
-
     </body>
 </html>
+
