@@ -4,7 +4,8 @@
     Author     : agarc
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,30 @@
         <title>Administrador</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <a href="<s:url action='logout'/>">Logout</a>
+        <h1>Cuenta administradora!</h1>
+        <h2>Listado de Hoteles</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Estrellas</th>
+            </tr>
+            <s:iterator value="hoteles">
+                <tr>
+                    <td><s:property value="idHotel" /></td>
+                <td><s:property value="nombre"/></td>
+                <td><s:property value="direccion"/></td>
+                <td><s:property value="estrellas"/></td>
+                </tr>
+            </s:iterator>
+        </table>
+
+    <s:form action="reservarHabitacion">
+        <s:submit id="Submit" value="Reservar" />
+    </s:form>
+
+    <div class="footer"></div>
+</body>
 </html>
