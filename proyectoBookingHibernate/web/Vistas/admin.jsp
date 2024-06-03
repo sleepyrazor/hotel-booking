@@ -37,7 +37,9 @@
     <s:form action="reservarHabitacion">
         <s:submit id="Submit" value="Reservar" />
     </s:form>
-
+ <s:form action="registrarHotel">
+        <s:submit id="Submit" value="Crear Hotel" />
+    </s:form>
     <div class="footer"></div>
 </body>
 </html>

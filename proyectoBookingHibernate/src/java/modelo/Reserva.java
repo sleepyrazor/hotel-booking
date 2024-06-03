@@ -9,7 +9,6 @@ import java.math.BigDecimal;
  */
 public class Reserva  implements java.io.Serializable {
 
-
      private Integer idReserva;
      private Cliente cliente;
      private Habitacion habitacion;

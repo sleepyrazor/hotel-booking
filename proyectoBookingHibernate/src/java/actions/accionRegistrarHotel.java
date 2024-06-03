@@ -6,6 +6,11 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import modelo.DAO.HotelDAO;
 import modelo.Hotel;
 
@@ -18,9 +23,16 @@ public class accionRegistrarHotel extends ActionSupport {
     private String nombre;
     private String direccion;
     private Integer estrellas;
-    private Hotel hotel; // Asegúrate de tener un objeto Hotel con getters y setters
+    private Hotel hotel;
+    private Map<Integer, String> listaEstrellas;
 
-    public accionRegistrarHotel() {
+    public accionRegistrarHotel(Map<Integer, String> listaEstrellas) {
+        listaEstrellas = new HashMap<>();
+        listaEstrellas.put(1, "1 Estrella");
+        listaEstrellas.put(2, "2 Estrellas");
+        listaEstrellas.put(3, "3 Estrellas");
+        listaEstrellas.put(4, "4 Estrellas");
+        listaEstrellas.put(5, "5 Estrellas");
     }
 
     public String getNombre() {
@@ -55,15 +67,31 @@ public class accionRegistrarHotel extends ActionSupport {
         this.hotel = hotel;
     }
 
+    public Map<Integer, String> getListaEstrellas() {
+        return listaEstrellas;
+    }
+
+    public void setListaEstrellas(Map<Integer, String> listaEstrellas) {
+        this.listaEstrellas = listaEstrellas;
+    }
+
     public String registrarHotel() {
-        // Lógica para validar y guardar el nuevo hotel en la base de datos
-        HotelDAO hotelDao = new HotelDAO();
-        hotelDao.guardarHotel(hotel);
-        return SUCCESS;
-    }
+        // Validar el número de estrellas
+        if (estrellas == null || estrellas < 1 || estrellas > 5) {
+            addActionError("El número de estrellas debe estar entre 1 y 5.");
+            return INPUT;
+        } else {
+            // Crear un nuevo objeto Hotel
+            Hotel hotel = new Hotel();
+            hotel.setNombre(nombre);
+            hotel.setDireccion(direccion);
+            hotel.setEstrellas(estrellas);
 
-    public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+            // Guardar el hotel en la base de datos
+            HotelDAO hotelDao = new HotelDAO();
+            hotelDao.guardarHotel(hotel);
 
+            return SUCCESS;
+        }
+    }
 }
