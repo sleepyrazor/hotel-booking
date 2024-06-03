@@ -39,6 +39,13 @@
             <result name="error">/Vistas/error.jsp</result>
         </action>
         
+        <action name="reservarHabitacion" class="actions.accionReservarHabitacion">
+            <result name="success">/Vistas/reservarHabitacion.jsp</result>
+            <result name="error">/Vistas/error.jsp</result>
+        </action>
+        
+        
+        
         
     </package>
 </struts>
