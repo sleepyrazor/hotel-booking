@@ -7,10 +7,12 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.math.BigDecimal;
+import javax.servlet.http.HttpSession;
 import modelo.Cliente;
 import modelo.DAO.ReservaDAO;
 import modelo.Habitacion;
 import modelo.Reserva;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -77,9 +79,12 @@ public class accionReservar extends ActionSupport {
     }
 
     public String execute() throws Exception {
+        HttpSession httpSession = ServletActionContext.getRequest().getSession();
+        Cliente c = (Cliente) httpSession.getAttribute("cliente");
         ReservaDAO rdao = new ReservaDAO();
         System.out.println(this.getIdHotel());
-        Reserva r = new Reserva(this.getCliente(), this.getHabitacion(), this.getCoste(), this.getDuracion());
+        
+        Reserva r = new Reserva(c, this.getHabitacion(), this.getCoste(), this.getDuracion());
         System.out.println(r);
         rdao.registrarReserva(r);
         return SUCCESS.toLowerCase();

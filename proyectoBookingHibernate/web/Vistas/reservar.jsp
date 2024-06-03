@@ -13,7 +13,7 @@
     </head>
     <body>
         <s:form action="registroHotel">
-            <p>Hotel: <%=  %></p>
+            <p>Hotel: </p>
             <s:textfield key="nombre" label="Nombre del hotel" />
             <s:textfield key="hotel.direccion" label="Dirección" />
             <s:select name="idRol" label="Rol" list="roles" listKey="idRol" listValue="nombreRol" />
