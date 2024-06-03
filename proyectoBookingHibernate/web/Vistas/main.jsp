@@ -33,14 +33,14 @@
                     <td><s:property value="nombre"/></td>
                     <td><s:property value="direccion"/></td>
                     <td><s:property value="estrellas"/></td>
-                </tr>
-                <s:form action="reservar">
-
+                    <td><s:form action="reservar">
                     <s:hidden name="idHotel" id="idHotel" value="%{idHotel}"></s:hidden>
                     <s:hidden name="nombre" id="nombre" value="%{nombre}"></s:hidden>
                     <s:hidden name="direccion" id="direccion" value="%{direccion}"></s:hidden>
                     <s:submit id="Submit" value="Reservar" action="reservarHabitacion"></s:submit>
-                </s:form>
+                        </s:form></td>
+                </tr>
+                
             </s:iterator>
         </table>
 
