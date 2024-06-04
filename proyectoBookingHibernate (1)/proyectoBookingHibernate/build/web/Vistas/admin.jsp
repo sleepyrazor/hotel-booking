@@ -15,7 +15,7 @@
     </head>
     <body>
         <a href="<s:url action='logout'/>">Logout</a>
-        <h1>Cuenta administradora!</h1>
+        <h1>Cuenta administradora <s:property value="#session.username"/></h1>
         <h2>Listado de Hoteles</h2>
         <table border="1">
             <tr>
