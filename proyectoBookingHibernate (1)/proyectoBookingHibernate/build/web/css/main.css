@@ -34,7 +34,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
-
+h1 {
+    text-align: center;
+    color: #007aff;
+}
 /* Title styling */
 h2 {
     text-align: center;

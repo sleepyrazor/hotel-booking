@@ -39,10 +39,7 @@
             </s:iterator>
         </table>
 
-        <s:form action="reservarHabitacion">
-            <s:submit id="Submit" value="Reservar" />
-        </s:form>
-
+     
         <s:url var="crearHotelUrl" value="/Vistas/registroHotel.jsp"/>
         <s:a href="%{crearHotelUrl}">Crear Hotel</s:a>
         <div class="footer">
