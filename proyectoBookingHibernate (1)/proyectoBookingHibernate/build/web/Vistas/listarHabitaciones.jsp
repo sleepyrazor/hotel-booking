@@ -15,6 +15,7 @@
     </head>
     <body>
         <a href="logout">Logout</a>
+        
         <h2>Listado de Habitaciones del <s:property value="#session.hotelActual.nombre"/></h2>
         <table border="1">
             <tr>
