@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <title>Registro de Hotel</title>
     </head>
     <body>
