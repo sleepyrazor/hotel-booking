@@ -1,0 +1,80 @@
+/* main.css */
+
+/* Global Styles */
+body {
+    background-color: #cce0ff; /* Soft blue background */
+    font-family: Arial, sans-serif;
+    color: #000066; /* Dark blue text color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Top Header */
+.top {
+    background-color: #0044cc; /* Strong blue header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.top h1 {
+    margin: 0;
+}
+
+/* Links */
+a {
+    color: #003399; /* Darker blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #e6f0ff; /* Very light blue background */
+}
+
+th, td {
+    border: 1px solid #003399;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #99ccff; /* Light blue for headers */
+    color: #000066;
+}
+
+/* Forms */
+s\\:form {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#Submit {
+    background-color: #0044cc; /* Strong blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#Submit:hover {
+    background-color: #003399; /* Darker blue on hover */
+}
+
+/* Footer */
+.footer {
+    background-color: #0044cc; /* Strong blue footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
