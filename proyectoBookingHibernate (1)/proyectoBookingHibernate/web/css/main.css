@@ -1,80 +1,105 @@
 /* main.css */
 
-/* Global Styles */
+/* General styling for the page */
 body {
-    background-color: #cce0ff; /* Soft blue background */
-    font-family: Arial, sans-serif;
-    color: #000066; /* Dark blue text color */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Top Header */
+/* Header styling */
 .top {
-    background-color: #0044cc; /* Strong blue header */
-    color: white;
-    padding: 20px;
+    background-color: #007aff;
+    padding: 20px 0;
     text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.top h1 {
+h1.container {
     margin: 0;
+    font-size: 2em;
 }
 
-/* Links */
+/* Link styling */
 a {
-    color: #003399; /* Darker blue for links */
+    color: #007aff;
     text-decoration: none;
+    margin: 20px;
+    display: inline-block;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-/* Table */
+/* Title styling */
+h2 {
+    text-align: center;
+    color: #007aff;
+}
+
+/* Table styling */
 table {
-    width: 100%;
+    width: 80%;
+    margin: 20px auto;
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: #e6f0ff; /* Very light blue background */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 th, td {
-    border: 1px solid #003399;
-    padding: 10px;
+    padding: 12px 20px;
     text-align: left;
 }
 
 th {
-    background-color: #99ccff; /* Light blue for headers */
-    color: #000066;
+    background-color: #f5f5f7;
+    color: #007aff;
+    border-bottom: 2px solid #007aff;
 }
 
-/* Forms */
-s\\:form {
-    margin: 20px 0;
-    text-align: center;
+td {
+    border-bottom: 1px solid #ddd;
 }
 
+tr:hover td {
+    background-color: #f0f8ff;
+}
+
+/* Button styling */
 #Submit {
-    background-color: #0044cc; /* Strong blue background */
+    background-color: #007aff;
     color: white;
-    padding: 10px 20px;
     border: none;
+    padding: 10px 20px;
+    font-size: 1em;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #Submit:hover {
-    background-color: #003399; /* Darker blue on hover */
+    background-color: #005bb5;
 }
 
-/* Footer */
+#Submit:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0,122,255,0.5);
+}
+
+#Submit:active {
+    background-color: #004080;
+    box-shadow: none;
+}
+
+/* Footer styling */
 .footer {
-    background-color: #0044cc; /* Strong blue footer */
-    color: white;
     text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    padding: 20px 0;
+    background-color: #f5f5f7;
+    margin-top: 40px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
 }
