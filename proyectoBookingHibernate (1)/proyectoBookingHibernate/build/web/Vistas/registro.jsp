@@ -7,8 +7,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>Registro de Usuario</title>
     <link href="<s:url value='/css/login.css'/>" rel="stylesheet" type="text/css"/>
+    <title>Registro de Usuario</title>
+    
 </head>
 <body>
     <h2>Registro de Usuario</h2>
