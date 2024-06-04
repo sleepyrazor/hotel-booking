@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="login-container">
-            <h2>Login</h2>
+            <h2>Book-IT-ing</h2>
             <s:form id="Form" name="loginform" method="POST" action="login">
                 <s:textfield id="textfield" name="nombre" label="Nombre de usuario" value="pepe" />
                 <s:password id="password" name="contrasena" label="Contraseña" value="1234" />
