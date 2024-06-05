@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2024 a las 16:53:02
--- Versión del servidor: 10.4.16-MariaDB
--- Versión de PHP: 7.4.12
+-- Tiempo de generación: 05-06-2024 a las 11:45:52
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,16 +34,18 @@ CREATE TABLE `cliente` (
   `telefono` varchar(20) DEFAULT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
   `idRol` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`idCliente`, `nombre`, `email`, `telefono`, `contrasena`, `idRol`) VALUES
-(2, 'Andrea', 'andrea@email.com', '650202584', '1234', 1),
-(3, 'Anabel', 'ana@ana.com', '954775214', '1111', 1),
-(4, 'Elena', 'andreagarcas811@gmail.com', '954775214', '1234', 2);
+(1, 'Juan Pérez', 'juan.perez@example.com', '123456789', 'hashed_password_1', 1),
+(2, 'María López', 'maria.lopez@example.com', '987654321', 'hashed_password_2', 2),
+(3, 'Carlos Gómez', 'carlos.gomez@example.com', '555555555', 'hashed_password_3', 2),
+(5, 'pepe', 'pepe@gmail.com', '12213', '123', 2),
+(6, 'paco', 'paco@gmail.com', '1233', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -56,8 +58,22 @@ CREATE TABLE `habitacion` (
   `numero` int(11) NOT NULL,
   `piso` int(11) DEFAULT NULL,
   `categoria` varchar(50) DEFAULT NULL,
-  `idHotel` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idHotel` int(11) DEFAULT NULL,
+  `ocupado` tinyint(1) DEFAULT NULL,
+  `precioxnoche` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `habitacion`
+--
+
+INSERT INTO `habitacion` (`idHabitacion`, `numero`, `piso`, `categoria`, `idHotel`, `ocupado`, `precioxnoche`) VALUES
+(1, 101, 1, 'Suite', 1, 0, 100.00),
+(2, 102, 1, 'Deluxe', 1, 0, 50.00),
+(3, 201, 2, 'Standard', 2, 0, 20.00),
+(4, 202, 2, 'Suite', 2, 0, 100.00),
+(5, 2, 2, 'Suit', 3, 0, 100.00),
+(6, 666, 6, 'Delux', 1, 0, 70.00);
 
 -- --------------------------------------------------------
 
@@ -70,14 +86,16 @@ CREATE TABLE `hotel` (
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(200) DEFAULT NULL,
   `estrellas` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `hotel`
 --
 
 INSERT INTO `hotel` (`idHotel`, `nombre`, `direccion`, `estrellas`) VALUES
-(1, 'Santi Petri', 'Chiclana/Cadiz', 5);
+(1, 'Hotel Central', 'Calle Principal 123, Ciudad', 5),
+(2, 'Hotel Playa', 'Avenida del Mar 456, Ciudad', 4),
+(3, 'aa', 'aa', 2);
 
 -- --------------------------------------------------------
 
@@ -91,7 +109,7 @@ CREATE TABLE `reserva` (
   `duracion` int(11) NOT NULL,
   `idCliente` int(11) DEFAULT NULL,
   `idHabitacion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -102,7 +120,7 @@ CREATE TABLE `reserva` (
 CREATE TABLE `rol` (
   `idRol` int(11) NOT NULL,
   `nombreRol` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -110,7 +128,7 @@ CREATE TABLE `rol` (
 
 INSERT INTO `rol` (`idRol`, `nombreRol`) VALUES
 (1, 'Administrador'),
-(2, 'Cliente');
+(2, 'Usuario');
 
 --
 -- Índices para tablas volcadas
@@ -159,31 +177,31 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `habitacion`
 --
 ALTER TABLE `habitacion`
-  MODIFY `idHabitacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idHabitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `idHotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idHotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `idReserva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idReserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
