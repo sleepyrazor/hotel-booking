@@ -1,0 +1,90 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="login" extends="struts-default">
+        <action name="login" class="actions.accionLogin">
+            <result name="admin">/Vistas/admin.jsp</result>
+            <result name="cliente">/Vistas/main.jsp</result>
+            <result name="error">/Vistas/login.jsp</result>
+            <result name="input">/Vistas/login.jsp</result>
+        </action>
+        <action name="register" class="actions.accionRegistro">
+            <result name="success">/Vistas/login.jsp</result>
+            <result name="error">/Vistas/registro.jsp</result>
+            <result name="input">/Vistas/registro.jsp</result>
+        </action>
+        <action name="logout" class="actions.accionLogout">
+            <result name="success">/Vistas/login.jsp</result>
+            <result name="login">/Vistas/login.jsp</result> 
+        </action>
+        
+    </package>
+    <package name="hotel" extends="struts-default">
+        <action name="listarHoteles" class="actions.accionListarHoteles">
+            <result name="success">/Vistas/main.jsp</result>
+            <result name="error">/Vistas/error.jsp</result>
+        </action>
+       
+        <action name="registrarHotel" class="actions.accionRegistrarHotel">
+            <result name="success">/Vistas/admin.jsp</result>
+            <result name="input">/Vistas/registroHotel.jsp</result>
+        </action>
+        
+        <action name="crearHabitacion" class="actions.accionCrearHabitacion">
+            <result name="success">/Vistas/listarHabitaciones.jsp</result>
+            <result name="error">/Vistas/crearHabitacion.jsp</result>
+        </action>
+        
+        <action name="modificarHabitacionPantalla" class="actions.accionModificarHabitacion" method="mostrarPantalla">
+            <result name="success">/Vistas/modificarHabitacion.jsp</result>
+        </action>
+        
+        <action name="modificarHabitacion" class="actions.accionModificarHabitacion">
+            <result name="success">/Vistas/listarHabitaciones.jsp</result>
+            <result name="error">/Vistas/modificarHabitacion.jsp</result>
+        </action>
+        
+        <action name="eliminarHabitacion" class="actions.accionEliminarHabitacion">
+            <result name="success">/Vistas/listarHabitaciones.jsp</result>
+        </action>
+        
+        <action name="modificarHotelPantalla" class="actions.accionModificarHotel" method="mostrarPantalla">
+            <result name="success">/Vistas/modificarHotel.jsp</result>
+        </action>
+        
+        <action name="modificarHotel" class="actions.accionModificarHotel">
+            <result name="success">/Vistas/admin.jsp</result>
+            <result name="error">/Vistas/modificarHotel.jsp</result>
+        </action>
+        
+        <action name="eliminarHotel" class="actions.accionEliminarHotel">
+            <result name="success">/Vistas/admin.jsp</result>
+        </action>
+        
+    </package>
+    
+    
+    <package name="reservas" extends="struts-default">
+        <action name="accionListarHabitaciones" class="actions.accionListarHabitaciones">
+            <result name="success">/Vistas/listarHabitaciones.jsp</result>
+        </action>
+        
+        <action name="crearReservaPantalla" class="actions.accionCrearReserva" method="mostrarPantalla">
+            <result name="success">/Vistas/crearReserva.jsp</result>
+        </action>
+        
+        <action name="crearReserva" class="actions.accionCrearReserva">
+            <result name="success">/Vistas/listarReservas.jsp</result>
+            <result name="error">/Vistas/crearReserva.jsp</result>
+        </action>
+        
+        <action name="listarReservasCliente" class="actions.accionListarReservas">
+            <result name="success">/Vistas/listarReservas.jsp</result>
+        </action>
+        
+    </package>
+</struts>
+
+
