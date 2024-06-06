@@ -3,29 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/actions/accionRegistro.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/modificarHotel.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/modificarReserva.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/modelo/Habitacion.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/css/main.css</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/modelo/DAO/ReservaDAO.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/crearHabitacion.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/modificarHabitacion.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/listarHabitaciones.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/listarReservas.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/modelo/Reserva.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/login.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/struts.xml</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/main.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/actions/accionCrearReserva.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/actions/accionLogin.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/crearReserva.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/actions/accionListarHabitaciones.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/registroHotel.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/registro.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/modelo/DAO/HotelDAO.java</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/web/Vistas/admin.jsp</file>
-            <file>file:/C:/Users/Garrido/OneDrive/Escritorio/3º%20CARRERA/IT/PROYECTO_IT_23-24/proyectoBookingHibernate%20(1)/proyectoBookingHibernate/src/java/actions/accionListarReservas.java</file>
+            <file>file:/C:/Users/agarc/1%20cuatrimestre/2%20cuatrimestre/INTEGRACIÓN%20DE%20TECNOLOGÍAS/Proyecto-CexUpo/hotel-booking/proyectoBookingHibernateFinaldelfinal/proyectoBookingHibernate/web/Vistas/registro.jsp</file>
+            <file>file:/C:/Users/agarc/1%20cuatrimestre/2%20cuatrimestre/INTEGRACIÓN%20DE%20TECNOLOGÍAS/Proyecto-CexUpo/hotel-booking/proyectoBookingHibernateFinaldelfinal/proyectoBookingHibernate/web/Vistas/login.jsp</file>
         </group>
     </open-files>
 </project-private>
